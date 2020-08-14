@@ -1,0 +1,114 @@
+// Default timeout
+$_defTimeOut: 0.3s;
+
+/* Default Properties */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    outline: none;
+}
+
+body{
+    overflow: hidden;
+    height: 100vh;
+    background-color: $_defColorDark;
+}
+
+/* Default text properties */
+
+body{
+    font-size: 1em;
+    line-height: 1.2em;
+    font-family: sans-serif;
+    color: $_defColorText;
+}
+
+a{
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Default struct */
+.container{
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hidden{
+    transform-origin: 0 0;
+    height: 0;
+    transform: rotateX(90deg) scale(0);;
+    transition: transform $_defTimeOut ease;
+}
+
+.show{
+    transform: rotateX(0deg) scale(1);
+    height: auto;
+}
+
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* Default link - button */
+a.button{
+    display: inline-block;
+    padding: 8px 15px;
+    color: $_defColorText;
+    background-color: $_defColorDark;
+    transition: background-color $_defTimeOut ease;
+    &:hover{
+        color: $_defColorDark;
+        background-color: $_defColorMain;
+    }
+    &.active{
+        color: $_defColorDark;
+        background-color: $_defColorMain;
+    }
+}
+
+/* Default text link */
+p a{
+    position: relative;
+    display: inline-block;
+    color: $_defColorText;
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $_defColorText;
+        transition: transform $_defTimeOut ease;
+    }
+    &:hover::before{
+        transform: scaleX(0);
+    }
+}
+
+/* Default list */
+ul{
+    list-style: none;
+}
+
+/* Default table */
+table{
+    border-collapse: collapse;
+    td,th{
+        border-bottom: 1px solid $_defColorSide;
+    }
+}

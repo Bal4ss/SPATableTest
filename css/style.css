@@ -1,0 +1,440 @@
+/* Default Properties */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  background-color: #011638;
+}
+
+/* Default text properties */
+body {
+  font-size: 1em;
+  line-height: 1.2em;
+  font-family: sans-serif;
+  color: #e8c1c5;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Default struct */
+.container {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hidden {
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  height: 0;
+  -webkit-transform: rotateX(90deg) scale(0);
+          transform: rotateX(90deg) scale(0);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.show {
+  -webkit-transform: rotateX(0deg) scale(1);
+          transform: rotateX(0deg) scale(1);
+  height: auto;
+}
+
+.flexCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+/* Default link - button */
+a.button {
+  display: inline-block;
+  padding: 8px 15px;
+  color: #e8c1c5;
+  background-color: #011638;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+  color: #011638;
+  background-color: #4f4686;
+}
+
+a.button.active {
+  color: #011638;
+  background-color: #4f4686;
+}
+
+/* Default text link */
+p a {
+  position: relative;
+  display: inline-block;
+  color: #e8c1c5;
+}
+
+p a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #e8c1c5;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+p a:hover::before {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+/* Default list */
+ul {
+  list-style: none;
+}
+
+/* Default table */
+table {
+  border-collapse: collapse;
+}
+
+table td, table th, main .form-wrapper table td,
+main .table-wrapper table td {
+  border-bottom: 1px solid #6b3f78;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 95vh;
+  margin-top: 5vh;
+}
+
+main .form-wrapper,
+main .table-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+main .form-wrapper .text-button,
+main .table-wrapper .text-button {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: 1px solid #e8c1c5;
+  margin: 15px 0;
+  text-align: center;
+  background-color: #6b3f78;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main .form-wrapper .text-button:hover,
+main .table-wrapper .text-button:hover {
+  background-color: #011638;
+}
+
+main .form-wrapper .text-button.tableButton,
+main .table-wrapper .text-button.tableButton {
+  background-color: #4f4686;
+}
+
+main .form-wrapper .text-button.tableButton:hover,
+main .table-wrapper .text-button.tableButton:hover {
+  background-color: #011638;
+}
+
+main .form-wrapper form,
+main .table-wrapper form {
+  display: block;
+}
+
+main .form-wrapper form div,
+main .table-wrapper form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+main .form-wrapper form div input, main .form-wrapper form div select,
+main .table-wrapper form div input,
+main .table-wrapper form div select {
+  display: block;
+  border: none;
+  width: 240px;
+  margin: 5px 15px;
+  padding: 8px 15px;
+  background-color: inherit;
+  color: #e8c1c5;
+  border-bottom: 2px solid #4f4686;
+}
+
+main .form-wrapper form div input.error, main .form-wrapper form div select.error,
+main .table-wrapper form div input.error,
+main .table-wrapper form div select.error {
+  color: #B40421;
+  border-color: #B40421;
+}
+
+main .form-wrapper form div select option,
+main .table-wrapper form div select option {
+  color: #000000;
+}
+
+main .form-wrapper form div input[type="submit"], main .form-wrapper form div select[type="submit"],
+main .table-wrapper form div input[type="submit"],
+main .table-wrapper form div select[type="submit"] {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e8c1c5;
+  background-color: #4f4686;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+main .form-wrapper form div input[type="submit"]:hover, main .form-wrapper form div select[type="submit"]:hover,
+main .table-wrapper form div input[type="submit"]:hover,
+main .table-wrapper form div select[type="submit"]:hover {
+  background-color: #011638;
+}
+
+main .form-wrapper form div input[type="submit"].disabled, main .form-wrapper form div select[type="submit"].disabled,
+main .table-wrapper form div input[type="submit"].disabled,
+main .table-wrapper form div select[type="submit"].disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+main .form-wrapper form div input[type="submit"].disabled:hover, main .form-wrapper form div select[type="submit"].disabled:hover,
+main .table-wrapper form div input[type="submit"].disabled:hover,
+main .table-wrapper form div select[type="submit"].disabled:hover {
+  background-color: #4f4686;
+}
+
+main .form-wrapper .table-header,
+main .table-wrapper .table-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+main .form-wrapper .table-header div,
+main .table-wrapper .table-header div {
+  width: 100%;
+  padding: 5px;
+}
+
+main .form-wrapper .table-header div.filter-block,
+main .table-wrapper .table-header div.filter-block {
+  text-align: right;
+}
+
+main .form-wrapper .table-header div select,
+main .table-wrapper .table-header div select {
+  max-width: 280px;
+  border: none;
+  background-color: inherit;
+  border-bottom: 2px solid #4f4686;
+  color: #e8c1c5;
+  padding: 8px 15px;
+}
+
+main .form-wrapper .table-header div select option,
+main .table-wrapper .table-header div select option {
+  color: #000000;
+}
+
+main .form-wrapper table,
+main .table-wrapper table {
+  border-top: 1px solid #6b3f78;
+}
+
+main .form-wrapper table th, main .form-wrapper table td,
+main .table-wrapper table th,
+main .table-wrapper table td {
+  padding: 8px 10px;
+  border-left: 1px solid #6b3f78;
+  cursor: default;
+  text-align: center;
+}
+
+main .form-wrapper table th:last-of-type, main .form-wrapper table td:last-of-type,
+main .table-wrapper table th:last-of-type,
+main .table-wrapper table td:last-of-type {
+  border-right: 1px solid #6b3f78;
+}
+
+main .form-wrapper table td,
+main .table-wrapper table td {
+  vertical-align: middle;
+  font-size: 0.8em;
+}
+
+main .form-wrapper .pages,
+main .table-wrapper .pages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .form-wrapper .pages .curr-page,
+main .table-wrapper .pages .curr-page {
+  cursor: default;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .form-wrapper .pages .curr-page span,
+main .table-wrapper .pages .curr-page span {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+}
+
+main .form-wrapper .pages .curr-page span::after, main .form-wrapper .pages .curr-page span::before,
+main .table-wrapper .pages .curr-page span::after,
+main .table-wrapper .pages .curr-page span::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #4f4686;
+  height: 4px;
+  width: 80%;
+  top: 50%;
+  margin-top: -2px;
+  left: 0;
+  border-radius: 2px;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+main .form-wrapper .pages .curr-page span::before,
+main .table-wrapper .pages .curr-page span::before {
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+
+main .form-wrapper .pages .curr-page span.next,
+main .table-wrapper .pages .curr-page span.next {
+  margin-left: 12px;
+}
+
+main .form-wrapper .pages .curr-page span.next::after, main .form-wrapper .pages .curr-page span.next::before,
+main .table-wrapper .pages .curr-page span.next::after,
+main .table-wrapper .pages .curr-page span.next::before {
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+main .form-wrapper .pages .curr-page span.disabled,
+main .table-wrapper .pages .curr-page span.disabled {
+  opacity: 0.5;
+}
+/*# sourceMappingURL=style.css.map */

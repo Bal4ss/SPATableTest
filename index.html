@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Main Style-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--VueJs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Тестовое задание (frontend)</title>
+</head>
+<body>
+    <!--Main menu-->
+    <header id="headerBlock">
+        
+    </header>
+
+    <!--Content-->
+    <main id="mainBlock">
+        <div class="container">
+            <div class="form-wrapper">
+                <span class="text-button" v-bind:class="{ tableButton: currBlock == 1 }" v-on:click="ActiveChange">{{formText[currBlock]}}</span>
+                <div class="hidden" v-bind:class="{ show: formIsActive }">
+                    <!--Adding person form-->
+                    <form action="" autocomplete="off" v-on:submit="SubmitFomr">
+                        <div class="inputBlock">
+                            <label for="PersonName">ФИО</label>
+                            <input v-bind:class="{ error: !validName }" type="text" id="PersonName" name="PersonName" v-model="personNameValue" placeholder="Иванов Иван Иванович" v-change v-on:blur="IsValidName" v-on:focus="RemoveError('name')" v-on:change="IsValidForm">
+                        </div>
+                        <div class="inputBlock">
+                            <label for="PersonDate">Дата</label>
+                            <input v-bind:class="{ error: !validDate }" type="date" id="PersonDate" name="PersonDate" v-model="personDateValue" v-change v-on:blur="IsValidDate" v-on:focus="RemoveError('date')" v-on:change="IsValidForm">
+                        </div>
+                        <div class="inputBlock">
+                            <label for="PersonEmail">Почта</label>
+                            <input v-bind:class="{ error: !validEmail }" type="email" id="PersonEmail" name="PersonEmail" v-model="personEmailValue" placeholder="example@example.com" v-change v-on:blur="IsValidEmail" v-on:focus="RemoveError('email')" v-on:change="IsValidForm">
+                        </div>
+                        <div class="inputBlock">
+                            <label for="PersonPhone">Телефон (+7)</label>
+                            <input v-bind:class="{ error: !validPhone }" type="tel" id="PersonPhone" name="PersonPhone" v-model="personPhoneValue" maxlength="14" v-phone pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" placeholder="(999) 888-7777" v-on:blur="IsValidPhone" v-on:focus="RemoveError('phone')" v-on:change="IsValidForm">
+                        </div>
+                        <div>
+                            <label for="">Дистанция</label>
+                            <select name="PersonDistance" id="PersoneDistance" v-model="personDistanceValue" v-on:blur="IsValidDistance" v-on:focus="RemoveError('distance')" v-on:change="IsValidForm">
+                                <option v-for="item in distance" v-bind:value="item.value">{{item.text}}</option>
+                            </select>
+                        </div>
+                        <div class="inputBlock">
+                            <label for="PersonMny">Сумма взноса, руб</label>
+                            <input v-bind:class="{ error: !validMny }"type="text" id="PersonMny" name="PersonMny" v-model="personMnyValue" v-mny v-change v-bind:value="personMnyValue" v-on:blur="IsValidMny" v-on:focus="RemoveError('mny')" v-on:change="IsValidForm">
+                        </div>
+                        <div>
+                            <input type="submit" v-bind:class="{ disabled: !validForm }" v-on:submit="SubmitFomr($event)" value="Добавить">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <div class="hidden" v-bind:class="{ show: !formIsActive }">
+                    <div class="table-header">
+                        <!--Filter-->
+                        <div class="filter-block">
+                            <select id="filter" name="filter" v-model="filterValue" v-on:change="SortUsers">
+                                <option v-for="item in filter" v-bind:value="item.value">{{item.text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-body">
+                        <!--Main table-->
+                        <table>
+                            <tr>
+                                <th>ФИО</th>
+                                <th>Дата рождения</th>
+                                <th>Email</th>
+                                <th>Телефон</th>
+                                <th>Дистанция, км</th>
+                                <th>Сумма взноса, руб</th>
+                            </tr>
+                            <tr v-for="item in UserData()">
+                                <td>{{item.name}}</td>
+                                <td>{{item.date}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.phone}}</td>
+                                <td>{{item.distance}}</td>
+                                <td>{{item.payment}}</td>
+                            </tr>
+                        </table>
+                        <div class="pages">
+                            <div class="curr-page">
+                                <span class="prev" v-bind:class="{ disabled: currPage == 0 }" v-on:click="PrevPage"></span>
+                                {{currPage+1}}
+                                <span class="next" v-bind:class="{ disabled: currPage + 1  == Math.ceil(users.length / sizePage) }" v-on:click="NextPage"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--Side information-->
+    <footer>
+
+    </footer>
+
+    <!--Main script (VueJS)-->
+    <script src="js/js.js"></script>
+</body>
+</html>
